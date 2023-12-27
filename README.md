@@ -43,25 +43,25 @@ Nama         : Dinita Kusumasari <br />
 
 5. Tampilan menu dashboard dapat menampilkan sesuai menu yang diklik <br />
    • Menu dasboard admin <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/95435fae-e957-40de-8f9f-f94b58c3bb0b) <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/6bdd75a2-f9e0-4e00-87a6-3edd50e4bb7c) <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/aac24900-cbe7-49ac-9e7d-3f59654b111f) <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/a87a4f28-4fe4-4319-b201-004e2f8357b9) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/b0bf8b40-96c3-4c5c-b1c3-7a9477238b00) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/e0825101-4383-47a2-a813-dd183a052bbb) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/0b52f106-c7a2-4daa-ac8c-ee6fd1c2290f) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/102a0476-2ad2-4625-8d03-345587e966c6) <br />
    
    • Menu dasboard dokter <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/778e2e4f-e30f-4528-9aaf-163785d78bd6) <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/26eb6bf2-e12a-4a31-bf6f-ee831b3382d4) <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/8a40364e-6dbd-48f2-adef-9b12df5c3201) <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/6ebab020-e065-410c-823f-1b217365f6c1) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/48ad1c60-d488-4979-95ea-ef57472df61b) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/766de1b6-3fe8-4da5-a438-87c96c32f727) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/afec24f6-1074-427c-98b6-de771d0eb47c) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/d580fa11-df93-4c31-b489-e4b94732d48c) <br />
 
 6. Tampilan CRUD obat telah berhasil dibuat <br />
-   ![image](https://github.com/atDnK/Poliklinik/assets/89030992/26eb6bf2-e12a-4a31-bf6f-ee831b3382d4) <br />
+   ![image](https://github.com/atDnK/Poliklinik/assets/89030992/41a31d88-e558-4168-b251-67171a7e95f4) <br />
    • Tampilan tambah data obat <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/6381ce62-0454-4e5a-b846-ee9c23599500) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/b03148e5-c18f-4632-bf35-7f00ba887551) <br />
    • Tampilan edit data obat <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/05266886-729f-4329-9324-1ace5e0dc407) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/b926bd02-0034-4cf1-9fe6-73a50087e9be) <br />
    • Tampilan hapus data obat <br />
-     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/23b0d1f3-1ccf-457e-a3a8-bb6626f61682) <br />
+     ![image](https://github.com/atDnK/Poliklinik/assets/89030992/bbcba441-3e98-4c4a-a2b1-2ec5a3a353ff) <br />
 
    
     
