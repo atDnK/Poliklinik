@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 
 <?php
 session_start();
-$id_dokter = $_SESSION['id'];
 $username = $_SESSION['username'];
-$id_poli = $_SESSION['id_poli'];
+$idPasien = $_SESSION['id'];
 
 if ($username == "") {
     header("location:login.php");
 }
-
 // else if ($username != "Admin") {
 //     echo '<script>alert("Anda tidak memiliki akses");window.location.href="login.php";</script>';
 // }
 ?>
 
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>POLIKLINIK</title>
+    <title>Poliklinik</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -46,31 +44,12 @@ if ($username == "") {
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <?php include('pages/jadwalPeriksa/jadwalPeriksa.php') ?>
+            <?php include('pages/daftarPoli/index.php') ?>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-            <div class="p-3">
-                <h5>Title</h5>
-                <p>Sidebar content</p>
-            </div>
-        </aside>
-        <!-- /.control-sidebar -->
-
         <!-- Main Footer -->
-        <footer class="main-footer">
-            <!-- To the right -->
-            <div class="float-right d-none d-sm-inline">
-                Anything you want
-            </div>
-            <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-            reserved.
-        </footer>
     </div>
     <!-- ./wrapper -->
 
@@ -82,6 +61,26 @@ if ($username == "") {
     <script src="assets/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="assets/AdminLTE/dist/js/adminlte.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#poli').on('change', function() {
+                var poliId = $(this).val();
+
+                // Mengambil data jadwal berdasarkan poli yang dipilih
+                $.ajax({
+                    type: 'POST',
+                    url: 'getJadwal.php', // Ganti dengan path file get_jadwal.php sesuai dengan struktur proyek Anda
+                    data: {
+                        poliId: poliId
+                    },
+                    success: function(data) {
+                        $('#jadwal').html(data);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
