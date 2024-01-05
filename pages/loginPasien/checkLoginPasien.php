@@ -14,20 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         header("location:../../tampilDashboard.php");
     } else {
-        $queryDokter = "SELECT * FROM dokter WHERE nama = '$username' && password = '$password'";
-        $resultDokter = mysqli_query($mysqli, $queryDokter);
-        if (mysqli_num_rows($resultDokter) > 0) {
-            $data = mysqli_fetch_assoc($resultDokter);
+        $queryPasien = "SELECT * FROM pasien WHERE nama = '$username' && password = '$password'";
+        $resultPasien = mysqli_query($mysqli, $queryPasien);
+        if (mysqli_num_rows($resultPasien) > 0) {
+            $data = mysqli_fetch_assoc($resultPasien);
 
             $_SESSION['id'] = $data['id'];
             $_SESSION['username'] = $data['nama'];
             $_SESSION['password'] = $data['password'];
-            $_SESSION['id_poli'] = $data['id_poli'];
-            $_SESSION['akses'] = "dokter";
+            $_SESSION['no_rm'] = $data['no_rm'];
+            $_SESSION['akses'] = "pasien";
 
-            header("location:../../tampilJadwal.php");
+            header("location:../../tampilDashboard.php");
         } else {
-            echo '<script>alert("Username atau password salah");location.href="../../login.php";</script>';
+            echo '<script>alert("Username atau Password salah");location.href="../../loginPasien.php";</script>';
         }
     }
 }

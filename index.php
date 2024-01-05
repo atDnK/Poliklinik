@@ -1,22 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-    session_start();
-    $username = $_SESSION['username'];
-
-    if ($username == "") {
-        header("location:login.php");
-    }
-    // else if ($username != "Admin") {
-    //     echo '<script>alert("Anda tidak memiliki akses");window.location.href="login.php";</script>';
-    // }
-?>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Log in</title>
+    <title>POLIKLINIK</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,10 +18,35 @@
 </head>
 
 <body class="hold-transition login-page">
-    <div class="container-fluid bg-sky-600 flex flex-col justify-center items-center text-white p-5" style="height: 400px;">
-        <h1 class="font-weight-bold mb-3">Poliklinik</h1>
+    <div class="container-fluid flex flex-col justify-center items-center text-white p-5" style="height: 400px; background: #0B2447">
+        <h1 class="font-weight-bold mb-3">Sistem Poliklinik BK</h1>
         <h5>
-            "Sehat Terbaik Dimulai di Sini: Poliklinik Kami, Pelayanan Berkualitas untuk Kesehatan Optimal Anda!"</h5>
+            "Memberikan Pelayanan Jadwal Janji Temu Antara Pasien dan Dokter"</h5>
+    </div>
+    <div class="container mt-5">
+        <div class="row justify-content-lg-center">
+            <div class="col-md-6">
+                <div class="card" style="border: 2px solid  #2E4374">
+                    <div class=" card-body flex justify-content-center items-center flex-col">
+                        <i class=" fas fa-user fa-fw mb-3" style="font-size: 34px; color:  #2E4374"></i>
+                        <p class="card-text text-center">Apabila anda adalah seorang Pasien, Silakan Login terlebih dahulu untuk
+                            melakukan pendaftaran sebagai pasien</p>
+                        <a href="loginPasien.php" class="btn btn-block" style="background-color: #2E4374; color: white;">Login Sebagai Pasien</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card" style="border: 2px solid  #2E4374">
+                    <div class="card-body flex justify-content-center items-center flex-col">
+                        <i class="fas fa-user-nurse fa-fw mb-3" style="font-size: 34px; color: #2E4374"></i>
+                        <p class="card-text text-center">Apabila anda adalah seorang Dokter, silakan Login terlebih dahulu untuk
+                            memulai melayani pasien</p>
+                        <a href="login.php" class="btn btn-block" style="background-color: #2E4374; color: white;">Login Sebagai Dokter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <!-- /.login-box -->
 

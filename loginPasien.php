@@ -24,7 +24,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Silakan login untuk melanjutkan</p>
 
-                <form action="pages/login/checkLogin.php" method="post">
+                <form action="pages/loginPasien/checkLoginPasien.php" method="post">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Username" name="username">
                         <div class="input-group-append">
@@ -57,13 +57,19 @@
                         <!-- /.col -->
                     </div>
                 </form>
+
+                <p class="mb-0">
+                    <a>Belum punya akun?
+                    </a> <span>
+                        <a href="registerPasien.php" class="text-center">Register</a>
+                    </span>
+                </p>
                 <p class="mb-1">
-                    <a href="loginPasien.php">Login sebagai pasien</a>
+                    <a href="login.php">Login sebagai dokter</a>
                 </p>
                 <p class="mb-1">
                     <a href="index.php">Kembali</a>
                 </p>
-
             </div>
             <!-- /.login-card-body -->
 

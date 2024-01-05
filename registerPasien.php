@@ -24,11 +24,11 @@
 
         <div class="card">
             <div class="card-body register-card-body">
-                <p class="login-box-msg">Daftarkan data anda</p>
+                <p class="login-box-msg">Silakan daftarkan data Anda</p>
 
-                <form action="pages/register/checkRegister.php" method="post">
+                <form action="pages/registerPasien/checkRegisterPasien.php" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Nama" name="nama" required>
+                        <input type="text" class="form-control" placeholder="Nama Lengkap" name="nama" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" placeholder="KTP" name="no_ktp" required>
+                        <input type="number" class="form-control" placeholder="No. KTP" name="no_ktp" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-id-card"></span>
@@ -55,27 +55,40 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="number" class="form-control" placeholder="No HP" name="no_hp" required>
+                        <input type="number" class="form-control" placeholder="No. HP" name="no_hp" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-phone"></span>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-block btn-primary">
-                        Register
-                    </button>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                <label for="agreeTerms">
+                                    I agree to the <a href="#">terms</a>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
                 </form>
 
-                <div class="social-auth-links text-center">
-                    <p>- Sudah punya akun? -</p>
-                    <a href="login.php" class="btn btn-block btn-success">
-                        Login
-                    </a>
-                </div>
+                <p class="mb-0">
+                    <a>Sudah punya akun?
+                    </a> <span>
+                        <a href="loginPasien.php" class="text-center">Login</a>
+                    </span>
+                </p>
             </div>
             <!-- /.form-box -->
-        </div><!-- /.card -->
+        </div>
+    </div><!-- /.card -->
     </div>
     <!-- /.register-box -->
 

@@ -1,61 +1,34 @@
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Periksa Pasien</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="dashboard.php?page=home">Home</a></li>
-                    <li class="breadcrumb-item active">Periksa Pasien</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content-header -->
+<?php
+require '../../config/koneksi.php';
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $id = $_POST['id'];
+    $tanggalPeriksa = $_POST['tanggal_periksa'];
+    $catatan = $_POST['catatan'];
+    $arrayObat = $_POST['obat'];
 
-<!-- Main content -->
-<div class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Daftar Periksa Pasien</h3>
+    $updateStatus = "UPDATE daftar_poli SET status_periksa = '1' WHERE id = '$id'";
+    $query = mysqli_query($mysqli, $updateStatus);
 
-                        <div class="card-tools">
-                            <!-- Modal Tambah Data Pasien -->
-                            
-                        </div>
-                    </div>
-                    <!-- /.card-header -->
+    if ($query) {
+        $insertPeriksa = "INSERT INTO periksa (id_daftar_poli, tgl_periksa, catatan, biaya_periksa) VALUES ('$id', '$tanggalPeriksa', '$catatan', 150000)";
+        $queryInsertPeriksa = mysqli_query($mysqli, $insertPeriksa);
+        if ($queryInsertPeriksa) {
+            $getLastData = "SELECT * FROM periksa ORDER BY id DESC LIMIT 1";
+            $queryGetLastData = mysqli_query($mysqli, $getLastData);
+            $getIdPeriksa = mysqli_fetch_assoc($queryGetLastData);
 
+            $idPeriksa = $getIdPeriksa['id'];
 
-                    <div class="card-body table-responsive p-0">
-                        <table class="table table-hover text-nowrap">
-                            <thead>
-                                <tr>
-                                    <th>No. Urut</th>
-                                    <th>Nama Pasien</th>
-                                    <th>Keluhan</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+            foreach ($arrayObat as $obat) {
+                $inserDetailPeriksa = "INSERT INTO detail_periksa (id_periksa, id_obat) VALUES ('$idPeriksa', '$obat')";
+                $queryDetailPeriksa = mysqli_query($mysqli, $inserDetailPeriksa);
 
-                                <!-- TAMPILKAN DATA PASIEN DI SINI -->
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-            </div>
-        </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
-<!-- /.content -->
+                if ($queryDetailPeriksa) {
+                    echo '<script>alert("Pasien telah diperiksa");window.location.href="../../tampilPeriksa.php"</script>';
+                } else {
+                    echo '<script>alert("Error");window.location.href="../../tampilPeriksa.php"</script>';
+                }
+            }
+        }
+    }
+}
