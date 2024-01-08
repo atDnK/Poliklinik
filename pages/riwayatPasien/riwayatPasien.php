@@ -58,8 +58,7 @@
                                         <td><?php echo $data['no_hp']; ?></td>
                                         <td><?php echo $data['no_rm']; ?></td>
                                         <td>
-                                            <button type='button' class='btn btn-sm btn-primary edit-btn' data-toggle="modal" data-target="#detailModal<?php echo $data['id'] ?>">Detail
-                                                Riwayat Periksa Pasien</button>
+                                            <button type='button' class='btn btn-sm btn-secondary edit-btn' data-toggle="modal" data-target="#detailModal<?php echo $data['id'] ?>">Detail</button>
 
                                             <div class="modal fade" id="detailModal<?php echo $data['id'] ?>">
                                                 <div class="modal-dialog modal-xl">

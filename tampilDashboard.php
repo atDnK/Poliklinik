@@ -5,15 +5,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 
 <?php
-    session_start();
-    $username = $_SESSION['username'];
+session_start();
+$username = $_SESSION['username'];
+if ($_SESSION['akses'] == 'dokter') {
+  $id_dokter = $_SESSION['id'];
+} else if ($_SESSION['akses'] == 'pasien') {
+  $idPasien = $_SESSION['id'];
+}
 
-    if ($username == "") {
-        header("location:login.php");
-    }
-    // else if ($username != "Admin") {
-    //     echo '<script>alert("Anda tidak memiliki akses");window.location.href="login.php";</script>';
-    // }
+if ($username == "") {
+  header("location:login.php");
+}
 ?>
 
 <html lang="en">

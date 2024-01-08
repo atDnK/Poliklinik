@@ -7,13 +7,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <?php
 session_start();
 $username = $_SESSION['username'];
+$id_dokter = $_SESSION['id'];
 
 if ($username == "") {
     header("location:login.php");
+} else if ($_SESSION['akses'] != "dokter") {
+    echo '<script>alert("Anda tidak memiliki akses");window.location.href="logout.php";</script>';
 }
-// else if ($username != "Admin") {
-//     echo '<script>alert("Anda tidak memiliki akses");window.location.href="login.php";</script>';
-// }
+
 ?>
 
 <html lang="en">
@@ -43,6 +44,7 @@ if ($username == "") {
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
+            <!-- Main content -->
             <?php include('pages/profil/profil.php') ?>
             <!-- /.content -->
         </div>

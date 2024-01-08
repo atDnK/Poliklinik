@@ -49,7 +49,7 @@
                                             <?php if ($data['status_periksa'] == 1) {
                                             ?>
                                                 <button type='button' class='btn btn-sm btn-warning edit-btn' data-toggle="modal" data-target="#editModal<?php echo $data['id'] ?>">Edit</button>
-                                                <a href='invoice.php?id=<?php echo $data['id'] ?>' class='btn btn-sm btn-secondary edit-btn'>Lihat Invoice</a>
+                                                <a href='tampilInvoice.php?id=<?php echo $data['id'] ?>' class='btn btn-sm btn-secondary edit-btn'>Lihat Invoice</a>
                                                 <div class="modal fade" id="editModal<?php echo $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -83,7 +83,7 @@
                                                                         <label for="catatan">Catatan</label>
                                                                         <textarea class="form-control" rows="3" id="catatan" name="catatan" required><?php echo $ambilData['catatan'] ?></textarea>
                                                                     </div>
-                                                                    <button type="submit" class="btn btn-success">Simpan</button>
+                                                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -101,7 +101,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <!-- Form tambah data obat disini -->
+                                                                <!-- Form tambah data pasien disini -->
                                                                 <form action="pages/periksaPasien/periksaPasien.php" method="post">
                                                                     <input type="hidden" name="id" value="<?php echo $data['id'] ?>">
                                                                     <div class="form-group">

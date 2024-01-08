@@ -9,12 +9,26 @@
       <!-- Sidebar -->
       <div class="sidebar">
           <!-- Sidebar user panel (optional) -->
+          <?php
+            require 'config/koneksi.php';
+            if ($_SESSION['akses'] == 'admin') {
+                $tampilData = array(
+                    'nama' => 'Admin'
+                );
+            } else if ($_SESSION['akses'] == 'dokter') {
+                $getData = mysqli_query($mysqli, "SELECT * FROM dokter WHERE id = '$id_dokter'");
+                $tampilData = mysqli_fetch_assoc($getData);
+            } else if ($_SESSION['akses'] == 'pasien') {
+                $getData = mysqli_query($mysqli, "SELECT * FROM pasien WHERE id = '$idPasien'");
+                $tampilData = mysqli_fetch_assoc($getData);
+            }
+            ?>
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
               <div class="image">
-                  <img src="assets/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                  <img src="assets/AdminLTE/dist/img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                  <a href="#" class="d-block"><?php echo $username ?></a>
+                  <a href="#" class="d-block"><?php echo $tampilData['nama'] ?></a>
               </div>
           </div>
 

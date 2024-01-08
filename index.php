@@ -18,7 +18,7 @@
 </head>
 
 <body class="hold-transition login-page">
-    <div class="container-fluid flex flex-col justify-center items-center text-white p-5" style="height: 400px; background: #0B2447">
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center text-white p-5" style="height: 400px; background: #0B2447">
         <h1 class="font-weight-bold mb-3">Sistem Poliklinik BK</h1>
         <h5>
             "Memberikan Pelayanan Jadwal Janji Temu Antara Pasien dan Dokter"</h5>
@@ -27,7 +27,7 @@
         <div class="row justify-content-lg-center">
             <div class="col-md-6">
                 <div class="card" style="border: 2px solid  #2E4374">
-                    <div class=" card-body flex justify-content-center items-center flex-col">
+                    <div class=" card-body d-flex flex-column justify-content-center align-items-center flex-col">
                         <i class=" fas fa-user fa-fw mb-3" style="font-size: 34px; color:  #2E4374"></i>
                         <p class="card-text text-center">Apabila anda adalah seorang Pasien, Silakan Login terlebih dahulu untuk
                             melakukan pendaftaran sebagai pasien</p>
@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-6">
                 <div class="card" style="border: 2px solid  #2E4374">
-                    <div class="card-body flex justify-content-center items-center flex-col">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center flex-col">
                         <i class="fas fa-user-nurse fa-fw mb-3" style="font-size: 34px; color: #2E4374"></i>
                         <p class="card-text text-center">Apabila anda adalah seorang Dokter, silakan Login terlebih dahulu untuk
                             memulai melayani pasien</p>
