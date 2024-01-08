@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['id_poli'] = $data['id_poli'];
             $_SESSION['akses'] = "dokter";
 
-            header("location:../../tampilJadwal.php");
+            header("location:../../tampilDashboard.php");
         } else {
             echo '<script>alert("Username atau password salah");location.href="../../login.php";</script>';
         }

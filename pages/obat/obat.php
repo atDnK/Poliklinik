@@ -25,7 +25,7 @@
                         <h3 class="card-title">Data Obat</h3>
 
                         <div class="card-tools">
-                            <button type="button" class="btn btn-sm btn-success float-right" data-toggle="modal" data-target="#addModal">
+                            <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#addModal">
                                 Tambah
                             </button>
                         </div>
@@ -122,7 +122,7 @@
                                                                     <label for="harga">Harga</label>
                                                                     <input type="text" class="form-control" id="harga" name="harga" value="<?php echo $data['harga'] ?>" required>
                                                                 </div>
-                                                                <button type="submit" class="btn btn-success">Simpan</button>
+                                                                <button type="submit" class="btn btn-primary">Simpan</button>
                                                             </form>
                                                         </div>
                                                     </div>

@@ -103,22 +103,27 @@
                                                         <?php
                                                         $nomor = 1;
                                                         require 'config/koneksi.php';
-                                                        $ambilDataJadwal = "SELECT jadwal_periksa.id, jadwal_periksa.id_dokter, jadwal_periksa.hari, jadwal_periksa.jam_mulai, jadwal_periksa.jam_selesai, jadwal_periksa.status, dokter.id AS idDokter, dokter.nama, dokter.alamat, dokter.no_hp, dokter.id_poli, poli.id AS idPoli, poli.nama_poli, poli.keterangan FROM jadwal_periksa INNER JOIN dokter ON jadwal_periksa.id_dokter = dokter.id INNER JOIN poli ON dokter.id_poli = poli.id WHERE id_poli = '$id_poli'";
+                                                        $ambilDataJadwal = "SELECT jadwal_periksa.id, jadwal_periksa.id_dokter, jadwal_periksa.hari, 
+                                                        jadwal_periksa.jam_mulai, jadwal_periksa.jam_selesai, jadwal_periksa.status, dokter.id AS 
+                                                        idDokter, dokter.nama, dokter.alamat, dokter.no_hp, dokter.id_poli, poli.id AS idPoli, 
+                                                        poli.nama_poli, poli.keterangan FROM jadwal_periksa INNER JOIN dokter ON 
+                                                        jadwal_periksa.id_dokter = dokter.id INNER JOIN poli ON dokter.id_poli = poli.id WHERE 
+                                                        id_poli = '$id_poli' AND dokter.id = '$id_dokter'";
 
-                                                        $resultss = mysqli_query($mysqli, $ambilDataJadwal);
-                                                        while ($a = mysqli_fetch_assoc($resultss)) {
+                                                        $results = mysqli_query($mysqli, $ambilDataJadwal);
+                                                        while ($dataJadwal = mysqli_fetch_assoc($results)) {
                                                             # code...
                                                         ?>
                                                             <tr>
                                                                 <td><?php echo $nomor++; ?></td>
-                                                                <td><?php echo $a['nama'] ?></td>
-                                                                <td><?php echo $a['hari'] ?></td>
-                                                                <td><?php echo $a['jam_mulai'] ?></td>
-                                                                <td><?php echo $a['jam_selesai'] ?></td>
+                                                                <td><?php echo $dataJadwal['nama'] ?></td>
+                                                                <td><?php echo $dataJadwal['hari'] ?></td>
+                                                                <td><?php echo $dataJadwal['jam_mulai'] ?></td>
+                                                                <td><?php echo $dataJadwal['jam_selesai'] ?></td>
                                                                 <td>
-                                                                    <?php if ($a['status'] == '1') {
+                                                                    <?php if ($dataJadwal['status'] == '1') {
                                                                         echo 'Aktif';
-                                                                    } else if ($a['status'] == '0') {
+                                                                    } else if ($dataJadwal['status'] == '0') {
                                                                         echo 'Non Aktif';
                                                                     }
                                                                     ?>

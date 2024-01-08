@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Ambil nilai dari form
     $id = $_POST["id"];
 
-    // Query untuk melakukan update data obat
+    // Query untuk melakukan update data poli
     $query = "DELETE FROM poli WHERE id = $id";
 
     // Eksekusi query

@@ -56,14 +56,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // melakukan increment
             $urutanTerakhir += 1;
 
-            // kondisi jika digit no urut satuan maka tambahkan 00 di depan nomer urut
-            // jika digit no urut puluhan maka tambahakan 0 di depan nomer urut
-            // jika digit no urut ratusan maka tidak perlu ditambahkan apa apa di depannya
-            if ($urutanTerakhir > 99) {
+            if ($urutanTerakhir > 99) { // jika digit no urut ratusan maka tidak perlu ditambahkan apa apa di depannya
                 $no_rm_baru = $tahun . $bulan . '-' . $urutanTerakhir;
-            } else if ($urutanTerakhir > 9 && $urutanTerakhir < 100) {
+            } else if ($urutanTerakhir > 9 && $urutanTerakhir < 100) { // jika digit no urut puluhan maka tambahakan 0 di depan nomer urut
                 $no_rm_baru = $tahun . $bulan . '-' . '0' . $urutanTerakhir;
-            } elseif ($urutanTerakhir <= 9) {
+            } elseif ($urutanTerakhir <= 9) { // kondisi jika digit no urut satuan maka tambahkan 00 di depan nomer urut
                 $no_rm_baru = $tahun . $bulan . '-' . '00' . $urutanTerakhir;
             }
             $insertDataBaru = "INSERT INTO pasien (nama, password, alamat, no_ktp, no_hp, no_rm) VALUES ('$nama', '$password', '$alamat', '$no_ktp', '$no_hp', '$no_rm_baru')";

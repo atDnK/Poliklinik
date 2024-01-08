@@ -25,7 +25,7 @@
                         <h3 class="card-title">Data Pasien</h3>
 
                         <div class="card-tools">
-                            <button type="button" class="btn btn-sm btn-success float-right" data-toggle="modal" data-target="#addModal">
+                            <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#addModal">
                                 Tambah
                             </button>
                             <!-- Modal Tambah Data Pasien -->
@@ -133,7 +133,7 @@
                                                                 <label for="no_hp">Nomor Hp</label>
                                                                 <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?php echo $data['no_hp'] ?>" required>
                                                             </div>
-                                                            <button type="submit" class="btn btn-success">Simpan</button>
+                                                            <button type="submit" class="btn btn-primary">Simpan</button>
                                                         </form>
                                                     </div>
                                                 </div>

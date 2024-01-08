@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alamat = $_POST["alamat"];
     $no_hp = $_POST["no_hp"];
     $poli = $_POST["poli"];
-    $password = ($nama);
+    $password = $nama;
 
     // Query untuk menambahkan data dokter ke dalam tabel
     $query = "INSERT INTO dokter (nama, password, alamat, no_hp, id_poli) VALUES ('$nama', '$password', '$alamat', '$no_hp', '$poli')";

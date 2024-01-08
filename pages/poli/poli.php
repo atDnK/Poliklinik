@@ -25,7 +25,7 @@
                         <h3 class="card-title">Data Poli</h3>
 
                         <div class="card-tools">
-                            <button type="button" class="btn btn-sm btn-success float-right" data-toggle="modal" data-target="#addModal">
+                            <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#addModal">
                                 Tambah
                             </button>
                         </div>
@@ -112,7 +112,7 @@
                                                                     <label for="keterangan">Keterangan</label>
                                                                     <input type="text" class="form-control" id="keterangan" name="keterangan" value="<?php echo $data['keterangan'] ?>" required>
                                                                 </div>
-                                                                <button type="submit" class="btn btn-success">Simpan</button>
+                                                                <button type="submit" class="btn btn-primary">Simpan</button>
                                                             </form>
                                                         </div>
                                                     </div>

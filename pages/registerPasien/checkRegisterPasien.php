@@ -31,18 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '<script>alert("Pendaftaran akun gagal");window.location.href="../../registerPasien.php";</script>';
             }
         } else {
-            $getLastData = 'SELECT * FROM pasien ORDER BY no_rm DESC limit 1';
+            $getLastData = 'SELECT * FROM pasien ORDER BY no_rm DESC limit 1'; // mencari data terakhir di tabel pasien
             $querygetData = mysqli_query($mysqli, $getLastData);
-            $lastData = mysqli_fetch_assoc($querygetData);
-            $substring = substr($lastData['no_rm'], 7);
-            $urutanTerakhir = (int) $substring;
-            $urutanTerakhir += 1;
+            $lastData = mysqli_fetch_assoc($querygetData); // mengambil data terakhir di tabel pasien
+            $substring = substr($lastData['no_rm'], 7); // mengambil digit index ke 7 untuk mendapatkan no urut terbaru
+            $urutanTerakhir = (int) $substring; // konversi string ke int
+            $urutanTerakhir += 1; // melakukan increment
 
-            if ($urutanTerakhir > 99) {
+            if ($urutanTerakhir > 99) { // jika digit no urut ratusan maka tidak perlu ditambahkan apa apa di depannya
                 $no_rm_baru = $tahun . $bulan . '-' . $urutanTerakhir;
-            } else if ($urutanTerakhir > 9 && $urutanTerakhir < 100) {
+            } else if ($urutanTerakhir > 9 && $urutanTerakhir < 100) { // jika digit no urut puluhan maka tambahakan 0 di depan nomer urut
                 $no_rm_baru = $tahun . $bulan . '-' . '0' . $urutanTerakhir;
-            } elseif ($urutanTerakhir <= 9) {
+            } elseif ($urutanTerakhir <= 9) { // kondisi jika digit no urut satuan maka tambahkan 00 di depan nomer urut
                 $no_rm_baru = $tahun . $bulan . '-' . '00' . $urutanTerakhir;
             }
             $insertDataBaru = "INSERT INTO pasien (nama, password, alamat, no_ktp, no_hp, no_rm) VALUES ('$nama', '$password', '$alamat', '$no_ktp', '$no_hp', '$no_rm_baru')";

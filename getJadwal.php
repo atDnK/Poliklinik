@@ -5,11 +5,14 @@ require 'config/koneksi.php';
 // Ambil id poli dari AJAX
 $poliId = $_POST['poliId'];
 
-// Buat kueri SQL untuk mengambil jadwal berdasarkan poli
-$query = "SELECT jadwal_periksa.id as idJadwal, dokter.nama, jadwal_periksa.hari, DATE_FORMAT(jadwal_periksa.jam_mulai, '%H:%i') as jamMulai, DATE_FORMAT(jadwal_periksa.jam_selesai, '%H:%i') as jamSelesai FROM jadwal_periksa INNER JOIN dokter ON jadwal_periksa.id_dokter = dokter.id INNER JOIN poli ON dokter.id_poli = poli.id WHERE poli.id = '$poliId'";
+// Buat query SQL untuk mengambil jadwal berdasarkan poli
+$query = "SELECT jadwal_periksa.id as idJadwal, dokter.nama, jadwal_periksa.hari, 
+DATE_FORMAT(jadwal_periksa.jam_mulai, '%H:%i') as jamMulai, DATE_FORMAT(jadwal_periksa.jam_selesai, '%H:%i') 
+as jamSelesai FROM jadwal_periksa INNER JOIN dokter ON jadwal_periksa.id_dokter = dokter.id INNER JOIN poli 
+ON dokter.id_poli = poli.id WHERE poli.id = '$poliId' AND jadwal_periksa.status = '1'";
 $result = mysqli_query($mysqli, $query);
 
-// Periksa apakah kueri berhasil dieksekusi
+// Periksa apakah query berhasil dieksekusi
 if ($result) {
     // Format data jadwal menjadi opsi select
     if (mysqli_num_rows($result) > 0) {
@@ -23,10 +26,10 @@ if ($result) {
         echo "<option value=''>Jadwal tidak ditemukan</option>";
     }
 
-    // Bebaskan hasil kueri
+    // Bebaskan hasil query
     mysqli_free_result($result);
 } else {
-    // Tampilkan pesan kesalahan jika kueri gagal dieksekusi
+    // Tampilkan pesan kesalahan jika query gagal dieksekusi
     echo "Error: " . mysqli_error($mysqli);
 }
 
