@@ -24,14 +24,17 @@
                     <div class="card-header">
                         <h3 class="card-title">Daftar Jadwal Periksa</h3>
                         <div class="card-tools">
-                            <button type="button" class="btn btn-sm btn-primary float-right mx-1 my-1" data-toggle="modal" data-target="#addModal">
+                            <button type="button" class="btn btn-sm btn-primary float-right mx-1 my-1"
+                                data-toggle="modal" data-target="#addModal">
                                 Tambah Jadwal
                             </button>
-                            <button type="button" class="btn btn-sm btn-secondary float-right mx-1 my-1" data-toggle="modal" data-target="#cekJadwal">
+                            <button type="button" class="btn btn-sm btn-secondary float-right mx-1 my-1"
+                                data-toggle="modal" data-target="#cekJadwal">
                                 Lihat Jadwal
                             </button>
                             <!-- Modal Tambah Data Jadwal -->
-                            <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+                                aria-labelledby="addModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -50,18 +53,20 @@
                                                         $hariArray = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
                                                         foreach ($hariArray as $hari) {
                                                         ?>
-                                                            <option value="<?php echo $hari ?>">
-                                                                <?php echo $hari ?></option>
+                                                        <option value="<?php echo $hari ?>">
+                                                            <?php echo $hari ?></option>
                                                         <?php } ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jamMulai">Jam Mulai</label>
-                                                    <input type="time" class="form-control" id="jamMulai" name="jamMulai" required>
+                                                    <input type="time" class="form-control" id="jamMulai"
+                                                        name="jamMulai" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jamSelesai">Jam Selesai</label>
-                                                    <input type="time" class="form-control" id="jamSelesai" name="jamSelesai" required>
+                                                    <input type="time" class="form-control" id="jamSelesai"
+                                                        name="jamSelesai" required>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Tambah</button>
                                             </form>
@@ -70,7 +75,8 @@
                                 </div>
                             </div>
                             <!-- Modal lihat Data jadwal -->
-                            <div class="modal fade" id="cekJadwal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="cekJadwal" tabindex="-1" role="dialog"
+                                aria-labelledby="addModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -114,21 +120,21 @@
                                                         while ($dataJadwal = mysqli_fetch_assoc($results)) {
                                                             # code...
                                                         ?>
-                                                            <tr>
-                                                                <td><?php echo $nomor++; ?></td>
-                                                                <td><?php echo $dataJadwal['nama'] ?></td>
-                                                                <td><?php echo $dataJadwal['hari'] ?></td>
-                                                                <td><?php echo $dataJadwal['jam_mulai'] ?></td>
-                                                                <td><?php echo $dataJadwal['jam_selesai'] ?></td>
-                                                                <td>
-                                                                    <?php if ($dataJadwal['status'] == '1') {
+                                                        <tr>
+                                                            <td><?php echo $nomor++; ?></td>
+                                                            <td><?php echo $dataJadwal['nama'] ?></td>
+                                                            <td><?php echo $dataJadwal['hari'] ?></td>
+                                                            <td><?php echo $dataJadwal['jam_mulai'] ?></td>
+                                                            <td><?php echo $dataJadwal['jam_selesai'] ?></td>
+                                                            <td>
+                                                                <?php if ($dataJadwal['status'] == 'Y') {
                                                                         echo 'Aktif';
-                                                                    } else if ($dataJadwal['status'] == '0') {
+                                                                    } else if ($dataJadwal['status'] == 'T') {
                                                                         echo 'Non Aktif';
                                                                     }
                                                                     ?>
-                                                                </td>
-                                                            </tr>
+                                                            </td>
+                                                        </tr>
                                                         <?php } ?>
                                                     </tbody>
                                                 </table>
@@ -167,98 +173,167 @@
                                 while ($data = mysqli_fetch_assoc($result)) {
                                     # code...  
                                 ?>
-                                    <tr>
-                                        <td><?php echo $no++; ?></td>
-                                        <td><?php echo $data['nama'] ?></td>
-                                        <td><?php echo $data['hari'] ?></td>
-                                        <td><?php echo $data['jam_mulai'] ?></td>
-                                        <td><?php echo $data['jam_selesai'] ?></td>
-                                        <td>
-                                            <?php
-                                            if ($data['status'] == '0') {
+                                <tr>
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo $data['nama'] ?></td>
+                                    <td><?php echo $data['hari'] ?></td>
+                                    <td><?php echo $data['jam_mulai'] ?></td>
+                                    <td><?php echo $data['jam_selesai'] ?></td>
+                                    <td>
+                                        <?php
+                                            if ($data['status'] == 'T') {
                                                 echo 'Non Aktif';
-                                            } else if ($data['status'] == '1') {
+                                            } else if ($data['status'] == 'Y') {
                                                 echo 'Aktif';
                                             }
                                             ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            if ($data['status'] == '0') {
-                                            ?>
-                                                <a href="pages/jadwalPeriksa/editStatusJadwal.php?id=<?php echo $data['id'] ?>&status=<?php echo $data['status'] ?>" class="btn btn-success">Aktif</a>
-                                            <?php } else if ($data['status'] == '1') { ?>
-                                                <a href="pages/jadwalPeriksa/editStatusJadwal.php?id=<?php echo $data['id'] ?>&status=<?php echo $data['status'] ?>" class="btn btn-danger">Non Aktif</a>
-                                            <?php } ?>
-                                        </td>
-
-                                        <!-- Modal Edit Data Jadwal -->
-                                        <div class="modal fade" id="editModal<?php echo $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-warning btn-sm" data-toggle="modal"
+                                            data-target="#editJadwal<?php echo $data['id'] ?>">Edit</button>
+                                        <!-- Modal Tambah Edit Jadwal -->
+                                        <div class="modal fade" id="editJadwal<?php echo $data['id'] ?>" tabindex="-1"
+                                            role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="addModalLabel">Edit Data Jadwal</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <h5 class="modal-title" id="addModalLabel">Tambah Jadwal Periksa
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <!-- Form edit data jadwal disini -->
-                                                        <form action="pages/jadwalPeriksa/updateJadwal.php" method="post">
-                                                            <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $data['id'] ?>" required>
+                                                        <form action="pages/jadwalPeriksa/editStatusJadwal.php"
+                                                            method="post">
+                                                            <input type="hidden" name="id"
+                                                                value="<?php echo $data['id'] ?>">
+                                                            <input type="hidden" name="status"
+                                                                value="<?php echo $data['status'] ?>">
                                                             <div class="form-group">
                                                                 <label for="hari">Hari</label>
-                                                                <select class="form-control" id="hari" name="hari">
-                                                                    <?php
-                                                                    $hariArray = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-                                                                    foreach ($hariArray as $hari) {
-                                                                    ?>
-                                                                        <option value="<?php echo $hari ?>">
-                                                                            <?php echo $hari ?></option>
-                                                                    <?php } ?>
-                                                                </select>
+                                                                <input type="text" class="form-control" id="hari"
+                                                                    name="hari" required readonly
+                                                                    value="<?php echo $data['hari'] ?>">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="jamMulai">Jam Mulai</label>
-                                                                <input type="time" class="form-control" id="jamMulai" name="jamMulai" required value="<?= $data['jam_mulai'] ?>">
+                                                                <input type="time" class="form-control" id="jamMulai"
+                                                                    name="jamMulai" required readonly
+                                                                    value="<?php echo $data['jam_mulai'] ?>">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="jamSelesai">Jam Selesai</label>
-                                                                <input type="time" class="form-control" id="jamSelesai" name="jamSelesai" required value="<?= $data['jam_selesai'] ?>">
+                                                                <input type="time" class="form-control" id="jamSelesai"
+                                                                    name="jamSelesai" required readonly
+                                                                    value="<?php echo $data['jam_selesai'] ?>">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="jamSelesai">Jam Selesai</label>
-                                                                <input type="time" class="form-control" id="jamSelesai" name="jamSelesai" required value="<?= $data['jam_selesai'] ?>">
+                                                                <label for="jamSelesai">Status</label>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio"
+                                                                        name="status" value="T" id="aktif" checked>
+                                                                    <label class="form-check-label"
+                                                                        for="aktif">Aktif</label>
+                                                                </div>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio"
+                                                                        name="status" value="Y" id="nonaktif">
+                                                                    <label class="form-check-label" for="nonaktif">Tidak
+                                                                        Aktif</label>
+                                                                </div>
                                                             </div>
-                                                            <button type="submit" class="btn btn-success">Simpan</button>
+                                                            <button type="submit"
+                                                                class="btn btn-primary">Simpan</button>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Modal Hapus Jadwal -->
-                                        <div class="modal fade" id="hapusModal<?php echo $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="addModalLabel">Hapus Data Obat</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <!-- Form edit data jadwal disini -->
-                                                        <form action="pages/obat/hapusObat.php" method="post">
-                                                            <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $data['id'] ?>" required>
-                                                            <p>Apakah anda yakin akan menghapus data <span class="font-weight-bold"><?php echo $data['nama_obat'] ?></span>
-                                                            </p>
-                                                            <button type="submit" class="btn btn-danger">Hapus</button>
-                                                        </form>
-                                                    </div>
+                                    </td>
+
+                                    <!-- Modal Edit Data Jadwal -->
+                                    <div class="modal fade" id="editModal<?php echo $data['id'] ?>" tabindex="-1"
+                                        role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="addModalLabel">Edit Data Jadwal</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- Form edit data jadwal disini -->
+                                                    <form action="pages/jadwalPeriksa/updateJadwal.php" method="post">
+                                                        <input type="hidden" class="form-control" id="id" name="id"
+                                                            value="<?php echo $data['id'] ?>" required>
+                                                        <div class="form-group">
+                                                            <label for="hari">Hari</label>
+                                                            <select class="form-control" id="hari" name="hari">
+                                                                <?php
+                                                                    $hariArray = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                                                                    foreach ($hariArray as $hari) {
+                                                                    ?>
+                                                                <option value="<?php echo $hari ?>">
+                                                                    <?php echo $hari ?></option>
+                                                                <?php } ?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="jamMulai">Jam Mulai</label>
+                                                            <input type="time" class="form-control" id="jamMulai"
+                                                                name="jamMulai" required
+                                                                value="<?= $data['jam_mulai'] ?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="jamSelesai">Jam Selesai</label>
+                                                            <input type="time" class="form-control" id="jamSelesai"
+                                                                name="jamSelesai" required
+                                                                value="<?= $data['jam_selesai'] ?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="jamSelesai">Jam Selesai</label>
+                                                            <input type="time" class="form-control" id="jamSelesai"
+                                                                name="jamSelesai" required
+                                                                value="<?= $data['jam_selesai'] ?>">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-success">Simpan</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
-                                    </tr>
+                                    </div>
+                                    <!-- Modal Hapus Jadwal -->
+                                    <div class="modal fade" id="hapusModal<?php echo $data['id'] ?>" tabindex="-1"
+                                        role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="addModalLabel">Hapus Data Obat</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- Form edit data jadwal disini -->
+                                                    <form action="pages/obat/hapusObat.php" method="post">
+                                                        <input type="hidden" class="form-control" id="id" name="id"
+                                                            value="<?php echo $data['id'] ?>" required>
+                                                        <p>Apakah anda yakin akan menghapus data <span
+                                                                class="font-weight-bold"><?php echo $data['nama_obat'] ?></span>
+                                                        </p>
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tr>
                                 <?php } ?>
 
                             </tbody>

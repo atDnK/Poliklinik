@@ -1,11 +1,15 @@
-<?php 
+<?php
 $databaseHost = 'localhost';
-$databaseName = 'poli_bk';
+$databaseName = 'poliklinik';
 $databaseUsername = 'root';
 $databasePassword = '';
- 
-$mysqli = mysqli_connect($databaseHost, 
-    $databaseUsername, $databasePassword, $databaseName);
+
+$mysqli = mysqli_connect(
+    $databaseHost,
+    $databaseUsername,
+    $databasePassword,
+    $databaseName
+);
 
 // Periksa koneksi
 if (!$mysqli) {
